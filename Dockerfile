@@ -14,7 +14,7 @@ RUN mkdir -p src/data
 CMD ["pnpm", "sync:data"]
 
 FROM base AS builder
-ARG NEXT_PUBLIC_SITE_URL=http://localhost:3000
+ARG NEXT_PUBLIC_SITE_URL=http://localhost:3001
 ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .

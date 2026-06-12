@@ -59,7 +59,7 @@ cp .env.production.example .env.production
 然后编辑 `.env.production`，至少改这两个值：
 
 ```bash
-APP_PORT=3000
+APP_PORT=3001
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 ```
 
@@ -85,7 +85,7 @@ docker compose logs -f app
 如果启动正常，服务会监听：
 
 ```bash
-http://127.0.0.1:3000
+http://127.0.0.1:3001
 ```
 
 或者你在 `.env.production` 里设定的其他 `APP_PORT`。端口只绑定到本机回环地址，由 Nginx 对外提供访问，避免绕过 HTTPS 直接访问应用端口。
@@ -98,7 +98,7 @@ http://127.0.0.1:3000
 
 - 域名 `A` 记录指向 VPS IP
 - 反向代理监听 `80/443`
-- 代理到 `127.0.0.1:3000`
+- 代理到 `127.0.0.1:3001`
 
 仓库里已经放好一个可改域名即可使用的 Nginx 示例：
 
