@@ -1,0 +1,10 @@
+[Unit]
+Description=Sync World Cup data and redeploy the application when needed
+After=docker.service network-online.target
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/worldcup
+ExecStart=/opt/worldcup/deploy/sync-and-redeploy.sh

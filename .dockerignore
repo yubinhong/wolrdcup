@@ -1,0 +1,9 @@
+.git
+.github
+.next
+.runtime
+node_modules
+docs
+npm-debug.log*
+pnpm-debug.log*
+.DS_Store

@@ -1,0 +1,26 @@
+{
+  "name": "worldcup-local-time",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@9.10.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint src --max-warnings=0",
+    "sync:data": "node scripts/sync-worldcup-data.mjs"
+  },
+  "dependencies": {
+    "next": "16.2.9",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "24.7.2",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.37.0",
+    "eslint-config-next": "16.2.9",
+    "typescript": "5.9.3"
+  }
+}

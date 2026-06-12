@@ -1,0 +1,31 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+    image: worldcup-local-time:latest
+    container_name: worldcup-local-time
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${APP_PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+      HOSTNAME: 0.0.0.0
+      PORT: 3000
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+
+  sync:
+    profiles: ["maintenance"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: sync
+    image: worldcup-local-time-sync:latest
+    working_dir: /app
+    environment:
+      WORLDCUP_DATA_FILE: /app/.runtime/worldcup-data.json
+    volumes:
+      - ./.runtime:/app/.runtime
